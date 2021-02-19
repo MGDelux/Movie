@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+        <title>javascript opg</title>
+    </head>
+    <body>
+        <p style="color: red" align="center">i dont have time for all these asignments :^) </p>
+
+                       <xmp>             
+JavaScript Functions
+JavaScript functions and Callbacks
+1) Create a new JavaScript file and add these three functions
+
+Function Declaration
+       //Observe: no return type, no type on parameters
+function add(n1, n2){
+   return n1 +n2;
+}
+
+Function Expression
+var sub = function(n1,n2){
+  return n1 - n2
+} 
+
+Callback example
+var cb = function(n1,n2, callback){
+  return "Result from the two numbers: "+n1+"+"+n2+"="+callback(n1,n2);
+};
+
+The following questions might seem trivial, but it's extremely important that you can answer (and understand) each, in order to do the JS-stuff we want to do this semester
+
+2) Call the functions above as sketched below. It’s not about doing it as fast as you can, but about understanding what's happening, so make sure you understand each line.
+
+console.log( add(1,2) )     // What will this print? 
+--3
+console.log( add )          // What will it print and what does add represent?
+Returns the function add aka teh add functions code 
+console.log( add(1,2,3) ) ; // What will it print
+3 it  as it ignores the 3rd value as the methode ignores the 3rd value 
+console.log( add(1) );	  // What will it print 	
+Null missing a value
+console.log( cb(3,3,add) ); // What will it print
+Result from the two numbers: 3+3=6 
+console.log( cb(4,3,sub) ); // What will it print
+Result from the two numbers: 4+3=1
+console.log(cb(3,3,add())); // What will it print (and what was the problem)
+VM587:15 Uncaught TypeError: callback is not a function
+    at cb (<anonymous>:15:56)
+    at <anonymous>:18:14
+    at run_code (default-source2.js?v=a5:477)
+    at HTMLAnchorElement.onclick ((index):219)
+adding () to “add” make it think its a function that need to be called 
+
+console.log(cb(3,"hh",add));// What will it print
+Result from the two numbers: 3+hh=3hh
+
+3)  Error Handling
+7 will fail due to missing/wrong arguments. But it will fail runtime, not as with Java, at compile time.
+
+We can check arguments in JavaScript as sketched below and provide better errors by throwing our own exceptions:
+
+typeof n1 === "number" //Will fail if n1 is undefined, or is not a number
+typeof callback === "function" //Will fail if callback is undefined or is not a function
+
+Rewrite the Callback function expression (cb)  to make a check for all its three required arguments, and throw an Error if any of the arguments do not match as explained here.
+
+Surround the call to the function with a try-catch block, and provide a more user-friendly error message if the function throws an error
+
+var cb = function(n1,n2, callback){
+try{
+  return "Result from the two numbers: "+n1+"+"+n2+"="+callback(n1,n2);
+  } catch(e){
+  console.error("error in function, error in argument")
+  
+  
+}
+}
+
+
+
+
+
+                    </xmp>
+    <div align="center">
+                    <h1 align="center">Other JS OPG: some of JavaScript Array opgv </h1>
+                    <p align="center">>>>open console<<<<</p>
+                    <a  href="http://localhost:8080/jpareststarter/">MOVIE APLICATION WEBPAGE</a>
+    </div>
+                    <script>
+                        
+function add(n1, n2){
+   return n1 +n2;
+}
+var sub = function(n1,n2){
+  return n1 - n2
+} 
+var cb = function(n1,n2, callback){
+  return "Result from the two numbers: "+n1+"+"+n2+"="+callback(n1,n2);
+};
+console.log("JS Function opg:")
+
+console.log( add(1,2) )   //3
+console.log("JS Function opg: 2")
+console.log( add )  //Returns the function add aka teh add functions code  as string
+console.log("JS Function opg: 3")
+console.log( add(1,2,3) ) ; // 3 it  as it ignores the 3rd value as the methode ignores the 3rd value 
+console.log("JS Function opg: 4") // Null missing a value
+console.log( add(1) );
+console.log("JS Function opg: 5") // Result from the two numbers: 3+3=6 
+
+console.log( cb(3,3,add) );
+console.log("JS Function opg: 6") // Result from the two numbers: 4+3=1
+
+console.log( cb(4,3,sub) );
+console.log("JS Function opg: 7") // VM587:15 Uncaught TypeError: callback is not a function 
+   // at cb (<anonymous>:15:56)
+  //  at <anonymous>:18:14
+   //  at run_code (default-source2.js?v=a5:477)
+//console.log(cb(3,3,add()));
+console.log("----------------------------")
+
+console.log("Opg 1");
+var drenge = ["Dreng1", "Dreng2", "Dreng3"]; 
+var piger = ["Pige1", "Pige2", "Pige3"];
+
+console.log(drenge);
+console.log(piger);
+
+console.log("Opgave 2");
+var concat = drenge.concat(piger);
+console.log(concat);
+
+
+console.log("Opgave 3");
+var astr = concat.join(",");
+
+var bstr = concat.join("-");
+console.log(astr);
+console.log(bstr);
+
+console.log("Opgave 4");
+concat.push("Pige1", "Pige2");
+console.log(concat);
+console.log(concat[0]);
+
+console.log("Opgave 5");
+concat.unshift("Dreng1", "Dreng2");
+console.log(concat);
+console.log(concat[0]);
+
+
+
+
+                    </script>
+
+
+
+
+
+
+
+    </body>
+</html>
